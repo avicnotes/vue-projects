@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+undefined
+</style>
+</head>
+<body>
+<div id="reactive-input">
+  <p>{{ typedMessage }}</p>
+  <input v-model="typedMessage">
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+<script src="https://webmaker.app/app/lib/transpilers/babel-polyfill.min.js"></script><script>
+'use strict';
+
+var reactiveInput = new Vue({
+  el: '#reactive-input',
+  data: {
+    typedMessage: 'Type here'
+  }
+});
+
+//# sourceURL=userscript.js
+</script>
+</body>
+</html>
