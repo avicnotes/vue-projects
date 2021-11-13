@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+undefined
+</style>
+</head>
+<body>
+<div id="tasks-adder">
+  <h1>{{ message }}</h1>
+  <input v-model="typeTask">
+  <li v-for="task in tasks">
+    <p>{{ task }}</p>
+  </li>
+  <button v-on:click="addTask">Add Task</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+<script src="https://webmaker.app/app/lib/transpilers/babel-polyfill.min.js"></script><script>
+'use strict';
+
+var tasksAdder = new Vue({
+  el: '#tasks-adder',
+  data: {
+    message: "Today's tasks",
+    typeTask: '',
+    tasks: ['Sleeping', 'Walking', 'Laundry']
+  },
+  methods: {
+    addTask: function addTask() {
+      this.task = this.tasks.push(this.typeTask), this.typeTask = '';
+    }
+  }
+
+});
+//# sourceURL=userscript.js
+</script>
+</body>
+</html>
