@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+undefined
+</style>
+</head>
+<body>
+<div id="handle-clicks">
+  <h1>Hello {{ message }}</h1>
+  <button v-on:click="addNumber">Add Number(+1)</button>
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+<script src="https://webmaker.app/app/lib/transpilers/babel-polyfill.min.js"></script><script>
+'use strict';
+
+var handleClicks = new Vue({
+  el: '#handle-clicks',
+  data: {
+    message: 1
+  },
+  methods: {
+    addNumber: function addNumber() {
+      this.message = this.message + 1;
+    }
+  }
+});
+//# sourceURL=userscript.js
+</script>
+</body>
+</html>
