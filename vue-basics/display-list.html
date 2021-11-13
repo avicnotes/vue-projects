@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+undefined
+</style>
+</head>
+<body>
+<div id="show-list">
+  <ol>
+    <li v-for="todo in todos">
+      {{ todo.text }}
+    </li>
+  </ol>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+<script src="https://webmaker.app/app/lib/transpilers/babel-polyfill.min.js"></script><script>
+'use strict';
+
+var showList = new Vue({
+  el: '#show-list',
+  data: {
+    todos: [{ text: 'Learn Javascript' }, { text: 'Learn Vue' }, { text: 'Build something awesome' }]
+  }
+});
+
+//# sourceURL=userscript.js
+</script>
+</body>
+</html>
