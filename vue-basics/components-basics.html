@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+undefined
+</style>
+</head>
+<body>
+<div id="todos-holder">
+  <todo-item
+    v-for="item in activityToday"
+    v-bind:todo="item"
+    v-bind:key="item.id"
+  ></todo-item>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+<script src="https://webmaker.app/app/lib/transpilers/babel-polyfill.min.js"></script><script>
+'use strict';
+
+Vue.component('todo-item', {
+  props: ['todo'],
+  template: '<li>{{ todo.text }}</li>'
+});
+
+var todosHolder = new Vue({
+  el: '#todos-holder',
+  data: {
+    activityToday: [{ id: 0, text: 'Jogging' }, { id: 1, text: 'Laundry' }, { id: 2, text: 'Takeout garbage' }]
+  }
+});
+
+//# sourceURL=userscript.js
+</script>
+</body>
+</html>
