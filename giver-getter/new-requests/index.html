@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <style>
+
+  </style>
+</head>
+<body>
+  <div class="container" id="new-request">
+    <div>
+      <h1>I am {{ heading }}:</h1>
+    </div>
+    <div>
+      <form action="">
+        <div class="mb-3">
+          <label for="formGroupExampleInput" class="form-label">Title</label>
+          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Title">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label">Quantity</label>
+          <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="1">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="inputState" class="form-label">Condition</label>
+          <select id="inputState" class="form-select">
+            <option selected>Choose...</option>
+            <option value="1">New</option>
+            <option value="2">Slightly Used</option>
+            <option value="3">Heavily Used</option>
+          </select>
+        </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-secondary">Save Draft</button>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- <div id="show-message">
+    <h1>Hello {{ message }}</h1>
+  </div> -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+  <!-- <script src="https://webmaker.app/app/lib/transpilers/babel-polyfill.min.js"></script> -->
+  <script>
+    'use strict';
+    var newRequest = new Vue({
+      el: '#new-request',
+      data: {
+        heading: 'Requesting',
+
+      }
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
