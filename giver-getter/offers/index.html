@@ -10,8 +10,8 @@
   </style>
 </head>
 <body>
-  <div class="container text-center">
-		<h1>Available Offers </h1>
+  <div class="container text-center" id="all-offers">
+		<h1> Available {{ heading }} </h1>
 		<button type="button" class="btn btn-primary">Create a new Offer + </button>
 	</div>
 
@@ -64,10 +64,10 @@
   <!-- <script src="https://webmaker.app/app/lib/transpilers/babel-polyfill.min.js"></script> -->
   <script>
     'use strict';
-    var showMessage = new Vue({
-      el: '#show-message',
+    var allOffers = new Vue({
+      el: '#all-offers',
       data: {
-        message: 'World'
+        heading: 'Offers'
       }
     });
   </script>
