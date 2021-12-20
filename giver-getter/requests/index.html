@@ -15,34 +15,21 @@
 		<button type="button" class="btn btn-primary">Create a new Request + </button>
 	</div>
 
-	<div id="offers" class="container">
-		<div class="card">
+	<div id="requests-list" class="container">
+		<div class="card mb-4" v-for="request in requests">
 			<div class="card-body">
-				<h2 class="card-title">Random post title 1</h2>
+				<h2 class="card-title">{{ request.heading }}</h2>
 				<p class="card-text">
-					Some quick example text to build on the card title and make up the bulk of the card's content.
+					{{request.description }}
 				</p>
 				<p class="card-text">
-					Date: DD-MM-YYYY
+					Date: {{ request.publishdate }}
 				</p>
 				<a href="#" class="btn btn-primary">Go somewhere</a>
 			</div>
 		</div>
 		
-		<div class="card">
-			<div class="card-body">
-				<h2 class="card-title">Random post title 1</h2>
-				<p class="card-text">
-					Some quick example text to build on the card title and make up the bulk of the card's content.
-				</p>
-				<p class="card-text">
-					Date: DD-MM-YYYY
-				</p>
-				<a href="#" class="btn btn-primary">Go somewhere</a>
-			</div>
-		</div>
-		
-		<div class="card">
+		<div class="card mb-4">
 			<div class="card-body">
 				<h2 class="card-title">Random post title 1</h2>
 				<p class="card-text">
@@ -68,6 +55,16 @@
       el: '#all-requests',
       data: {
         heading: 'Requests'
+      }
+    });
+    var requestsList = new Vue({
+      el: '#requests-list',
+      data: {
+        requests: [  
+          { heading: 'Learn JavaScript', description: 'short placeholder description for item 1', publishdate: '14-12-2021' },
+          { heading: 'Learn Vue', description: 'short placeholder description for item 2', publishdate: '15-12-2021' },
+          { heading: 'Build something awesome', description: 'short placeholder description for item 3', publishdate: '16-12-2021' }
+        ]
       }
     });
   </script>
