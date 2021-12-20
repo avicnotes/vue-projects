@@ -18,24 +18,28 @@
       <form action="">
         <div class="mb-3">
           <label for="formGroupExampleInput" class="form-label">Title</label>
-          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Title">
+          <input type="text" v-model="offertitle" class="form-control" id="formGroupExampleInput" placeholder="Title">
+          <p>{{offertitle}}</p>
         </div>
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <textarea class="form-control" v-model="offerdescription" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <p>{{offerdescription}}</p>
         </div>
         <div class="mb-3">
           <label for="formGroupExampleInput2" class="form-label">Quantity</label>
-          <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="1">
+          <input type="number" v-model="offerquantity" class="form-control" id="formGroupExampleInput2" placeholder="1">
+          <p>{{offerquantity}}</p>
         </div>
         <div class="col-md-4 mb-3">
           <label for="inputState" class="form-label">Condition</label>
-          <select id="inputState" class="form-select">
-            <option selected>Choose...</option>
+          <select id="inputState" class="form-select"  v-model="selected">
+            <option disabled selected>Choose...</option>
             <option value="1">New</option>
             <option value="2">Slightly Used</option>
             <option value="3">Heavily Used</option>
           </select>
+          {{ selected }}
         </div>
           <button type="submit" class="btn btn-primary">Submit</button>
           <button type="button" class="btn btn-secondary">Save Draft</button>
@@ -56,7 +60,10 @@
       el: '#new-offer',
       data: {
         heading: 'Giving',
-
+        offertitle:'',
+        offerdescription:'',
+        offerquantity:'1',
+        selected:''
       }
     });
   </script>
