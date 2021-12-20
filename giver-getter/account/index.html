@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <style>
+
+  </style>
+</head>
+<body>
+  <div class="container" id="user-account">
+    <div>
+      <h1>{{ username }}'s Account</h1>
+    </div>
+    <div>
+      <h2>Your Current Offers</h2>
+      <div v-for="offer in useroffers">
+        <p>
+          <span>{{ offer.title }} |</span>
+          <span>{{ offer.date }}</span>
+        </p>
+      </div>
+    </div>
+    <div>
+      <h2>Your Current Requests</h2>
+      <div v-for="request in userrequests">
+        <p>
+          <span>{{ request.title }} |</span>
+          <span>{{ request.date }}</span>
+        </p>
+      </div>
+    </div>
+    <div>
+      <h2>Accepted Offers</h2>
+      <p>Title of the offer</p>
+    </div>
+    <div>
+      <h2>Fulfilled Requests</h2>
+      <p>Title of the request</p>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+  <!-- <script src="https://webmaker.app/app/lib/transpilers/babel-polyfill.min.js"></script> -->
+  <script>
+    'use strict';
+    var userAccount = new Vue({
+      el: '#user-account',
+      data: {
+        username: 'James-world',
+        useroffers: [
+          { title: 'Used Desktop monitors', date:'12-Dec-2021' },
+          { title: 'Used Laptops', date:'10-Nov-2021' }
+        ],
+        userrequests: [
+          { title: 'Used baby monitors', date:'13-Dec-2021' },
+          { title: 'Used RaspberryPi', date:'14-Nov-2021' }
+        ]
+      }
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
