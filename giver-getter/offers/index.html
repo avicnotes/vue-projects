@@ -16,8 +16,8 @@
 	</div>
 
 	<div id="offers-list" class="container">
-		<div class="card">
-			<div class="card-body"  v-for="offer in offers">
+		<div class="card mb-4" v-for="offer in offers">
+			<div class="card-body">
 				<h2 class="card-title">{{ offer.heading }}</h2>
 				<p class="card-text">
 					{{ offer.description }}
@@ -29,20 +29,7 @@
 			</div>
 		</div>
 		
-		<div class="card">
-			<div class="card-body">
-				<h2 class="card-title">Random post title 1</h2>
-				<p class="card-text">
-					Some quick example text to build on the card title and make up the bulk of the card's content.
-				</p>
-				<p class="card-text">
-					Date: DD-MM-YYYY
-				</p>
-				<a href="#" class="btn btn-primary">Go somewhere</a>
-			</div>
-		</div>
-		
-		<div class="card">
+		<div class="card mb-4">
 			<div class="card-body">
 				<h2 class="card-title">Random post title 1</h2>
 				<p class="card-text">
