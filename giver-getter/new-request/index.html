@@ -15,21 +15,28 @@
       <h1>I am {{ heading }}:</h1>
     </div>
     <div>
-      <form action="">
+      <form @submit="checkForm" action="" method="post">
+        <p v-if="errors.length">
+          <b>Please correct the following error(s):</b>
+          <ul>
+            <li v-for="error in errors">{{ error }}</li>
+          </ul>
+        </p>
+        
         <div class="mb-3">
-          <label for="formGroupExampleInput" class="form-label">Title</label>
-          <input type="text" v-model="requesttitle" class="form-control" id="formGroupExampleInput" placeholder="Title">
-          <p>{{requesttitle }}</p>
+          <label for="requesttitle" class="form-label">Title</label>
+          <input type="text" v-model="requesttitle" class="form-control" id="requesttitle" placeholder="Title">
+          <p>{{ requesttitle }}</p>
         </div>
         <div class="mb-3">
-          <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-          <textarea class="form-control" v-model="requestdescription" id="exampleFormControlTextarea1" rows="3"></textarea>
-          {{requestdescription}}
+          <label for="requestdescription" class="form-label">Description</label>
+          <textarea class="form-control" v-model="requestdescription" id="requestdescription" rows="3"></textarea>
+          {{ requestdescription }}
         </div>
         <div class="mb-3">
-          <label for="formGroupExampleInput2" class="form-label">Quantity</label>
-          <input type="number" v-model.number="requestquantity" class="form-control" id="formGroupExampleInput2" placeholder="1">
-          <p>{{requestquantity}}</p>
+          <label for="requestquantity" class="form-label">Quantity</label>
+          <input type="number" v-model.number="requestquantity" class="form-control" id="requestquantity" placeholder="1">
+          <p>{{ requestquantity}}</p>
         </div>
         <div class="col-md-4 mb-3">
           <label for="inputState" class="form-label">Condition</label>
@@ -58,11 +65,35 @@
     var newRequest = new Vue({
       el: '#new-request',
       data: {
+        errors:[],
         heading: 'Requesting',
-        requesttitle:'',
-        requestdescription:'',
-        requestquantity:'1',
+        requesttitle: null,
+        requestdescription: null,
+        requestquantity: null,
         selected:''
+      },
+      methods: {
+        checkForm: function(){
+          if (this.requesttitle && this.requestdescription && this.requestquantity) {
+            return true;
+          }
+
+          this.errors = [];
+
+          if (!this.requesttitle) {
+            this.errors.push('Title is required.');
+          }
+          if (!this.requestdescription) {
+            this.errors.push('Description is required.');
+          }
+          if (!this.requestquantity) {
+            this.errors.push('Quantity is required.');
+          }
+          if (!this.selected) {
+            this.errors.push('Choose a suitable condition.');
+          }
+          e.preventDefault();
+        }
       }
     });
   </script>
