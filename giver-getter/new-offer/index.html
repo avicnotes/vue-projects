@@ -15,33 +15,40 @@
       <h1>I am {{ heading }}:</h1>
     </div>
     <div>
-      <form action="">
+      <form @submit="checkForm" action="" method="post">
+        <p v-if="errors.length">
+          <b>Please correct the following error(s):</b>
+          <ul>
+            <li v-for="error in errors">{{ error }}</li>
+          </ul>
+        </p>
+
         <div class="mb-3">
           <label for="formGroupExampleInput" class="form-label">Title</label>
           <input type="text" v-model="offertitle" class="form-control" id="formGroupExampleInput" placeholder="Title">
           <p>{{offertitle}}</p>
         </div>
         <div class="mb-3">
-          <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-          <textarea class="form-control" v-model="offerdescription" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <label for="offerdescription" class="form-label">Description</label>
+          <textarea class="form-control" v-model="offerdescription" id="offerdescription" rows="3"></textarea>
           <p>{{offerdescription}}</p>
         </div>
         <div class="mb-3">
-          <label for="formGroupExampleInput2" class="form-label">Quantity</label>
-          <input type="number" v-model.number="offerquantity" class="form-control" id="formGroupExampleInput2" placeholder="1">
+          <label for="quantity" class="form-label">Quantity</label>
+          <input type="number" v-model.number="offerquantity" class="form-control" id="quantity" placeholder="1" min="1">
           <p>{{offerquantity}}</p>
         </div>
         <div class="col-md-4 mb-3">
           <label for="inputState" class="form-label">Condition</label>
           <select id="inputState" class="form-select"  v-model="selected">
             <option disabled selected>Choose...</option>
-            <option value="1">New</option>
-            <option value="2">Slightly Used</option>
-            <option value="3">Heavily Used</option>
+            <option value="new">New</option>
+            <option value="slightlyused">Slightly Used</option>
+            <option value="heavilyused">Heavily Used</option>
           </select>
           {{ selected }}
         </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button class="btn btn-primary">Submit</button>
           <button type="button" class="btn btn-secondary">Save Draft</button>
 
       </form>
@@ -59,11 +66,35 @@
     var newOffer = new Vue({
       el: '#new-offer',
       data: {
+        errors: [],
         heading: 'Giving',
-        offertitle:'',
-        offerdescription:'',
-        offerquantity:'1',
-        selected:''
+        offertitle:null,
+        offerdescription:null,
+        offerquantity:null,
+        selected:null
+      },
+      methods: {
+        checkForm: function(){
+          if (this.offertitle && this.offerdescription && this.offerquantity) {
+            return true;
+          }
+
+          this.errors = [];
+
+          if (!this.offertitle) {
+            this.errors.push('Title is required.');
+          }
+          if (!this.offerdescription) {
+            this.errors.push('Description is required.');
+          }
+          if (!this.offerquantity) {
+            this.errors.push('Quantity is required.');
+          }
+          if (!this.selected) {
+            this.errors.push('Choose a suitable condition.');
+          }
+          e.preventDefault();
+        }
       }
     });
   </script>
