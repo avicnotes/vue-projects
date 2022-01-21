@@ -9,13 +9,13 @@
 
   </style>
 </head>
-<body>
-  <div class="container" id="new-offer">
+<body class="pt-4">
+  <div class="container " id="offer-container">
     <div>
       <h1>I am {{ heading }}:</h1>
     </div>
     <div>
-      <form @submit="checkForm" action="" method="post">
+      <div>
         <p v-if="errors.length">
           <b>Please correct the following error(s):</b>
           <ul>
@@ -25,33 +25,37 @@
 
         <div class="mb-3">
           <label for="formGroupExampleInput" class="form-label">Title</label>
-          <input type="text" v-model="offertitle" class="form-control" id="formGroupExampleInput" placeholder="Title">
-          <p>{{offertitle}}</p>
+          <input type="text" v-model="myNewOffer.heading" class="form-control" id="formGroupExampleInput" placeholder="Title">
+          <p>{{myNewOffer.heading}}</p>
         </div>
         <div class="mb-3">
           <label for="offerdescription" class="form-label">Description</label>
-          <textarea class="form-control" v-model="offerdescription" id="offerdescription" rows="3"></textarea>
-          <p>{{offerdescription}}</p>
+          <textarea class="form-control" v-model="myNewOffer.description" id="offerdescription" rows="3"></textarea>
+          <p>{{myNewOffer.description}}</p>
         </div>
         <div class="mb-3">
           <label for="quantity" class="form-label">Quantity</label>
-          <input type="number" v-model.number="offerquantity" class="form-control" id="quantity" placeholder="1" min="1">
-          <p>{{offerquantity}}</p>
+          <input type="number" v-model.number="myNewOffer.quantity" class="form-control" id="quantity" placeholder="1" min="1">
+          <p>{{myNewOffer.quantity}}</p>
         </div>
         <div class="col-md-4 mb-3">
           <label for="inputState" class="form-label">Condition</label>
-          <select id="inputState" class="form-select"  v-model="selected">
+          <select id="inputState" class="form-select"  v-model="myNewOffer.selected">
             <option disabled selected>Choose...</option>
             <option value="new">New</option>
             <option value="slightlyused">Slightly Used</option>
             <option value="heavilyused">Heavily Used</option>
           </select>
-          {{ selected }}
+          {{ myNewOffer.selected }}
         </div>
-          <button class="btn btn-primary">Submit</button>
+          <button v-on:click="addMyNewOffer" class="btn btn-primary">Submit</button>
           <button type="button" class="btn btn-secondary">Save Draft</button>
-
-      </form>
+      </div>
+    </div>
+    <div>
+      <ul v-for="offer in offers">
+        <li>{{ offer.heading }}</li>
+      </ul>
     </div>
   </div>
 
@@ -63,37 +67,54 @@
   <!-- <script src="https://webmaker.app/app/lib/transpilers/babel-polyfill.min.js"></script> -->
   <script>
     'use strict';
-    var newOffer = new Vue({
-      el: '#new-offer',
+    var offerContainer = new Vue({
+      el: '#offer-container',
       data: {
         errors: [],
         heading: 'Giving',
-        offertitle:null,
-        offerdescription:null,
-        offerquantity:null,
-        selected:null
+        offers: [  
+          { heading: 'Learn JavaScript', description: 'short placeholder description for item 1', date: '11-12-2021' },
+          { heading: 'Learn Vue', description: 'short placeholder description for item 2', date: '12-12-2021' },
+          { heading: 'Build something awesome', description: 'short placeholder description for item 3', date: '13-12-2021' }
+        ],
+        myNewOffer: {
+          heading:null,
+          description:null,
+          quantity:null,
+          selected:null,
+        }
       },
       methods: {
         checkForm: function(){
-          if (this.offertitle && this.offerdescription && this.offerquantity) {
+          if (this.myNewOffer.heading && this.myNewOffer.description && this.offerquantity) {
+            this.offers.push(this.offers);
             return true;
           }
 
           this.errors = [];
 
-          if (!this.offertitle) {
+          if (!this.myNewOffer.heading) {
             this.errors.push('Title is required.');
           }
-          if (!this.offerdescription) {
+          if (!this.myNewOffer.description) {
             this.errors.push('Description is required.');
           }
-          if (!this.offerquantity) {
+          if (!this.myNewOffer.quantity) {
             this.errors.push('Quantity is required.');
           }
           if (!this.selected) {
             this.errors.push('Choose a suitable condition.');
           }
           e.preventDefault();
+        },
+        addMyNewOffer: function(){
+          let newOffer = {
+            heading: this.myNewOffer.heading,
+            description: this.myNewOffer.description,
+            quantity: this.myNewOffer.quantity,
+            selected: this.myNewOffer.selected,
+          }
+          this.offers.push(newOffer)
         }
       }
     });
