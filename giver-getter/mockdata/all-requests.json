@@ -1,0 +1,56 @@
+[
+  {
+    "title": "English books",
+    "description": "A common separation by content are fiction and non-fiction books. This simple separation can be found in most collections, libraries, and bookstores.  There are other types such as books of  sheet music.",
+    "quantity": 24,
+    "condition": "Slightly used"
+  },
+  {
+    "title": "Computer monitors",
+    "description": "Many monitors have other accessories (or connections for them) integrated. This places standard ports within easy reach and eliminates the need for another separate hub, camera, microphone, or set of speakers. These monitors have advanced microprocessors which contain codec information, Windows Interface drivers and other small software which help in proper functioning of these functions.",
+    "quantity": 2,
+    "condition": "Heavily Used"
+  },
+  {
+    "title": "Harry potter novels",
+    "description": "For cover art, Bloomsbury chose painted art in a classic style of design, with the first cover a watercolour and pencil drawing by illustrator Thomas Taylor showing Harry boarding the Hogwarts Express, and a title in the font Cochin Bold.",
+    "quantity": 7,
+    "condition": "Heavily Used"
+  },
+  {
+    "title": "Writing pads",
+    "description": "During the fourteenth and fifteenth centuries, notebooks were often made by hand at home by drawing on them into gatherings that were then bound at a later date. The pages were blank and every notekeeper had to make ruled lines across the paper. Making and keeping notebooks was such an important information management technique that children learned how in school.",
+    "quantity": 30,
+    "condition": "New"
+  },
+  {
+    "title": "Floor Carpet",
+    "description": "The art of carpet weaving was in addition intimately connected to the making of curtains as evidenced in a passage by Kirakos Gandzaketsi, a 13th-century Armenian historian from Artsakh, who praised Arzu-Khatun, the wife of regional prince Vakhtang Khachenatsi, and her daughters for their expertise and skill in weaving.",
+    "quantity": 1,
+    "condition": "Heavily Used"
+  },
+  {
+    "title": "Solar panels",
+    "description": "Outdoor solar panels usually include MC4 connectors. Automotive solar panels may also include a car lighter and/or USB adapter. Indoor panels (including solar pv glasses, thin films and windows)  can integrate  microinverter (AC Solar panels).",
+    "quantity": 3,
+    "condition": "Slightly used"
+  },
+  {
+    "title": "Chicken wire",
+    "description": "Charles Barnard, a British ironmonger, built the world's first wire-netting machine in 1844. He based his design on cloth weaving machines. Soon the firm of Barnard, Bishop & Barnard, established in Norwich, was selling wire netting all over the world.",
+    "quantity": 5,
+    "condition": "Slightly used"
+  },
+  {
+    "title": "Wireless headphones",
+    "description": "Generic or custom-fitting ear canal plugs are made from silicone rubber, elastomer, or foam. Such plugs in lower-end devices may be interchangeable, which increases the risk of them falling off and getting lodged in the ear canal. Custom in-ear headphones use castings of the ear canal to create custom-molded plugs that provide added comfort and noise isolation.",
+    "quantity": 4,
+    "condition": "Slightly used"
+  },
+  {
+    "title": "Computer mouse",
+    "description": "A computer mouse (plural mice, sometimes mouses) is a hand-held pointing device that detects two-dimensional motion relative to a surface. This motion is typically translated into the motion of a pointer on a display, which allows a smooth control of the graphical user interface of a computer.",
+    "quantity": 10,
+    "condition": "new"
+  }
+]
